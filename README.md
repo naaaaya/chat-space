@@ -2,21 +2,27 @@
 ---
 ## Chat-Space
 
-### Ruby version 
+### Ruby version
 2.3.1
 
 ### Database design
 
 * messages table
+belongs_to: user
+belongs_to: group
 
-|column   |type     |constraint       |
-|:-------:|:-------:|:---------------:|
-|body     |text     |                 |
-|image    |string   |                 |
-|group_id |reference|foreign_key: true|
-|user_id  |reference|foreign_key: true|
+|column   |type      |constraint       |
+|:-------:|:--------:|:---------------:|
+|body     |text      |                 |
+|image    |string    |                 |
+|group    |references|foreign_key: true|
+|user     |references|foreign_key: true|
 
 * users table
+
+has_many :messages
+has_many :groups, through: :users_groups
+has_mamy :users_groups
 
 |column               |type  |constraint               |
 |:-------------------:|:----:|:-----------------------:|
@@ -27,15 +33,20 @@
 
 
 * groups table
+has_many :massages
+has_many :users, through :users_groups
+has_many :users_groups
 
-|column|type  |constraint | 
+|column|type  |constraint |
 |:----:|:----:|:---------:|
 |name  |string|null: false|
 
 * users_groups table
+belongs_to :user
+belongs_to :group
 
-|column  |type     |constraint       |
-|:------:|:-------:|:---------------:|
-|user_id |reference|foreign_key: true|
-|group_id|reference|foreign_key: true|
+|column  |type      |constraint       |
+|:------:|:--------:|:---------------:|
+|user    |references|foreign_key: true|
+|group   |references|foreign_key: true|
 
