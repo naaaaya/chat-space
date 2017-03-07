@@ -1,24 +1,55 @@
 # README
+---
+## Chat-Space
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Ruby version
+2.3.1
 
-Things you may want to cover:
+### Database design
 
-* Ruby version
+* messages table
 
-* System dependencies
+belongs_to: user
+belongs_to: group
 
-* Configuration
+|column   |type      |constraint       |
+|:-------:|:--------:|:---------------:|
+|body     |text      |                 |
+|image    |string    |                 |
+|group    |references|foreign_key: true|
+|user     |references|foreign_key: true|
 
-* Database creation
+* users table
 
-* Database initialization
+has_many :messages
+has_many :groups, through: :users_groups
+has_mamy :users_groups
 
-* How to run the test suite
+|column               |type  |constraint               |
+|:-------------------:|:----:|:-----------------------:|
+|email                |string|null: false, unique: true|
+|name                 |string|null: false              |
+|password             |string|null: false              |
+|confirmation_password|string|null: false              |
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+* groups table
 
-* ...
+has_many :messages
+has_many :users, through :users_groups
+has_many :users_groups
+
+|column|type  |constraint |
+|:----:|:----:|:---------:|
+|name  |string|null: false|
+
+* users_groups table
+
+belongs_to :user
+belongs_to :group
+
+|column  |type      |constraint       |
+|:------:|:--------:|:---------------:|
+|user    |references|foreign_key: true|
+|group   |references|foreign_key: true|
+
