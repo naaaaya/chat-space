@@ -7,4 +7,12 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    = yield
+    %header
+    .menu
+      .menu__user-name
+        %h3 naaya
+      .menu__chat-groups
+        %h2 sample
+        %p sample
+    .chat-view
+      = yield

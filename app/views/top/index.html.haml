@@ -1,0 +1,12 @@
+.chat-view__group-details
+  %h2 Sample
+  %p Menbers: naya
+  = link_to 'edit', :class => "edit-button"
+.chat-view__history
+  .chat-box
+    %h3 naayasaito
+    %p 2017/03/07 19:53:07
+    %h4 message
+.chat-view__form
+  %input(type = 'text' name = 'message' placeholder = 'type a message')
+  = button_tag 'submit', :class => "submit-button"
