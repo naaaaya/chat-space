@@ -1,7 +1,8 @@
 .chat-view__group-details
   %h2 Sample
-  %p Menbers: naya
+  %p Members: naya
   = link_to 'edit', :class => "edit-button"
+  %hr
 .chat-view__history
   .chat-box
     %h3 naayasaito
@@ -25,5 +26,5 @@
     %h4 good night
 .chat-view__form
   %input(type = 'text' name = 'message' placeholder = 'type a message')
-%i.fa.fa-picture-o
+  %i.fa.fa-picture-o
   = button_tag 'submit', :class => "submit-button"
