@@ -35,7 +35,7 @@ has_mamy :users_groups
 
 * groups table
 
-has_many :massages
+has_many :messages
 has_many :users, through :users_groups
 has_many :users_groups
 
