@@ -8,6 +8,7 @@
 ### Database design
 
 * messages table
+
 belongs_to: user
 belongs_to: group
 
@@ -33,6 +34,7 @@ has_mamy :users_groups
 
 
 * groups table
+
 has_many :massages
 has_many :users, through :users_groups
 has_many :users_groups
@@ -42,6 +44,7 @@ has_many :users_groups
 |name  |string|null: false|
 
 * users_groups table
+
 belongs_to :user
 belongs_to :group
 
