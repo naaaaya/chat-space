@@ -32,10 +32,6 @@
     %p 2017/03/02 19:53:07
     %h4 good night
 .chat-view__form
-  %ul
-    %li
-      %input(type = 'text' name = 'message' placeholder = 'type a message')
-    %li
-      %i.fa.fa-picture-o
-    %li
-      = button_tag 'Send', :class => "send-button"
+  %input(type = 'text' name = 'message' placeholder = 'type a message')
+    %i.fa.fa-picture-o
+  = button_tag 'Send', :class => "send-button"
