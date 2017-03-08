@@ -70,10 +70,12 @@ input{
   width:calc(100% - 40px);
 }
 i{
+  float: right;
   margin-right: 10px;
   color:#434A54;
   position:relative;
-  bottom:50px;
+  bottom:37.5px;
+  /*right: calc(78.5px + 17.16px);*/
 }
 .send-button{
   position:relative;
