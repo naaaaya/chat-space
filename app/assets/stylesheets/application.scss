@@ -2,8 +2,10 @@
 @import "font-awesome";
 @import "top";
 
-html, body {
-  height: 100%;
+html, body{
+  height:100%;
+  width:100%;
+  overflow: hidden;
 }
 
 header{
@@ -12,22 +14,39 @@ header{
   text-align: center;
 }
 
+
 .menu{
   float:left;
   width:300px;
   height:100%;
   background-color: #2f3e51;
   color: #FFFFFF;
+  overflow:hidden;
+  z-index: 2;
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
   a:visited {
-   color: #FFFFFF; 
+   color: #FFFFFF;
  }
   &__user-name{
     background-color: #253141;
     padding:35px 20px;
     vertical-align: middle;
+    &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
     h3{
       font-size:16px;
       font-weight: bold;
+      float:left;
+    }
+    a{
+      float:right;
     }
   }
   &__chat-groups{
@@ -40,4 +59,9 @@ header{
       font-size:11px;
     }
   }
+}
+.chat-view{
+  margin-left: 300px;
+  overflow:hidden;
+  /*height: 100%;*/
 }
