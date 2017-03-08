@@ -1,0 +1,57 @@
+@import "./reset";
+@import "font-awesome";
+@import "top";
+@import "./clearfix";
+
+header{
+  background-color: #38AEF0;
+  color: #FFFFFF;
+  text-align: center;
+}
+
+
+.menu{
+  float:left;
+  width:300px;
+  height:100vh;
+  background-color: #2f3e51;
+  color: #FFFFFF;
+  @include clearfix();
+
+  a:visited {
+   color: #FFFFFF;
+ }
+
+  &__user-name{
+    background-color: #253141;
+    padding:35px 20px;
+    vertical-align: middle;
+    height:36px;
+    @include clearfix();
+    h3{
+      font-size:16px;
+      font-weight: bold;
+      float:left;
+    }
+    a{
+      float:right;
+      color: #FFFFFF;
+      padding-left: 5px;
+      font-size: 16px;
+    }
+  }
+  &__chat-groups{
+    padding:20px 20px;
+    h2{
+      font-size:15px;
+      padding-bottom: 5px
+    }
+    p{
+      font-size:11px;
+    }
+  }
+}
+.chat-view{
+  height: 100vh;
+  margin-left: 300px;
+}

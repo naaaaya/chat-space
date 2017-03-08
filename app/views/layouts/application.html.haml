@@ -7,4 +7,22 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    = yield
+    %header チャットグループが作成されました。
+    .menu
+      .menu__user-name
+        %h3 Naaya
+        = link_to do
+          %i.fa.fa-cog
+        = link_to do
+          %i.fa.fa-pencil-square-o
+      .menu__chat-groups
+        %h2 sample
+        %p sample
+      .menu__chat-groups
+        %h2 sample
+        %p sample
+      .menu__chat-groups
+        %h2 sample
+        %p sample
+    .chat-view
+      =yield
