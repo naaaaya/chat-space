@@ -1,11 +1,9 @@
-@import "./clearfix";
 .chat-view__group-details{
     background-color: #FFFFFF;
     padding: 35px 40px 0;
     border-bottom-style: solid; 
     border-bottom-color: #eeeeee;
     overflow: hidden;
- @include clearfix();
     h2{
       float: left;
       font-size: 20px;
@@ -32,11 +30,11 @@
 }
 
 .chat-view__history{
+  height: calc(100vh - 90px - 82px);
   padding:46px 40px 0;
   background-color: #FAFAFA;
-  height: 100%;
+  /*width:100%;*/
   overflow:scroll;
-  @include clearfix();
   .chat-box{
     h3{
     color:#434A54;
@@ -60,15 +58,8 @@
 }
 
 .chat-view__form{
-  overflow:hidden;
-margin-left: 300px;
-position:fixed;
-width:100%;
-bottom:0;
-left:0px;
-z-index:1;
+overflow:hidden;
 padding: 20px 50px;
-@include clearfix();
 background-color: #DDDDDD;
 
 input{
@@ -89,6 +80,7 @@ i{
   padding:0 20px;
   margin-left: 15px;
   font-size: 16px;
+  float:right;
 }
 
 }
