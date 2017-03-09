@@ -8,8 +8,6 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     %header
-      -if notice
-        %p(class="alert alert-notice")= notice
-      -if alert
-        %p(class="alert alert-error")= alert
+      -if flash[:notice]
+        =flash[:notice]
     =yield
