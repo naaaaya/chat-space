@@ -1,7 +1,8 @@
 %header チャットグループが作成されました。
 .menu
   .menu__user-name
-    %h3 Naaya
+    %h3
+      = current_user.name
     = link_to do
       %i.fa.fa-cog
     = link_to do
