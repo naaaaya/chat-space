@@ -1,0 +1,57 @@
+%header チャットグループが作成されました。
+.menu
+  .menu__user-name
+    %h3
+      -if user_signed_in?
+        =current_user.name
+    = link_to edit_user_registration_path do
+      %i.fa.fa-cog
+    = link_to new_group_path do
+      %i.fa.fa-pencil-square-o
+  .menu__chat-groups
+    %h2 sample
+    %p sample
+  .menu__chat-groups
+    %h2 sample
+    %p sample
+  .menu__chat-groups
+    %h2 sample
+    %p sample
+.chat-view
+  .chat-view__group-details
+    %h2 Sample
+    = link_to 'Edit', class: "edit-button"
+    %p Members: naya
+  .chat-view__history
+    .chat-box
+      %h3 naayasaito
+      %p 2017/03/07 19:53:07
+      %h4 hello
+    .chat-box
+      %h3 naayasaito
+      %p 2017/03/08 19:53:07
+      %h4 good morning
+    .chat-box
+      %h3 naayasaito
+      %p 2017/03/09 19:53:07
+      %h4 good evening
+    .chat-box
+      %h3 naayasaito
+      %p 2017/03/01 19:53:07
+      %h4 bye
+    .chat-box
+      %h3 naayasaitos
+      %p 2017/03/02 19:53:07
+      %h4 good night
+      .chat-box
+      %h3 naayasaito
+      %p 2017/03/01 19:53:07
+      %h4 bye
+    .chat-box
+      %h3 naayasaitos
+      %p 2017/03/02 19:53:07
+      %h4 good night
+  .chat-view__form
+    %input(type = 'text' name = 'message' placeholder = 'type a message')
+    = button_tag 'Send', class: "send-button"
+    %i.fa.fa-picture-o

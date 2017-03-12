@@ -1,0 +1,19 @@
+.menu
+  .menu__user-name
+    %h3
+      -if user_signed_in?
+        =current_user.name
+    = link_to edit_user_registration_path do
+      %i.fa.fa-cog
+    = link_to new_group_path do
+      %i.fa.fa-pencil-square-o
+  .menu__chat-groups
+    %h2 sample
+    %p sample
+  .menu__chat-groups
+    %h2 sample
+    %p sample
+  .menu__chat-groups
+    %h2 sample
+    %p sample
+.chat-view
