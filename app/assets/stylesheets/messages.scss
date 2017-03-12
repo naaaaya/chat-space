@@ -1,0 +1,151 @@
+@import "./reset";
+@import "font-awesome";
+@import "./clearfix";
+
+header{
+  background-color: #38AEF0;
+  color: #FFFFFF;
+  text-align: center;
+}
+
+
+.menu{
+  float:left;
+  width:300px;
+  height:100vh;
+  background-color: #2f3e51;
+  color: #FFFFFF;
+  @include clearfix();
+
+  a:visited {
+   color: #FFFFFF;
+ }
+
+  &__user-name{
+    background-color: #253141;
+    padding:35px 20px;
+    vertical-align: middle;
+    height:36px;
+    @include clearfix();
+    h3{
+      font-size:16px;
+      font-weight: bold;
+      float:left;
+    }
+    a{
+      float:right;
+      color: #FFFFFF;
+      padding-left: 5px;
+      font-size: 16px;
+    }
+  }
+  &__chat-groups{
+    padding:20px 20px;
+    h2{
+      font-size:15px;
+      padding-bottom: 5px
+    }
+    p{
+      font-size:11px;
+    }
+  }
+}
+.chat-view{
+  height: 100vh;
+  margin-left: 300px;
+}
+.chat-view__group-details{
+    background-color: #FFFFFF;
+    padding: 35px 40px 0;
+    border-bottom-style: solid;
+    border-bottom-color: #eeeeee;
+    overflow: hidden;
+    h2{
+      float: left;
+      font-size: 20px;
+      color:#333333;
+      padding-bottom: 15px;
+    }
+    p{
+      clear: both;
+      font-size: 12px;
+      color: #999999;
+      padding-bottom: 5px;
+    }
+    a {
+    float: right;
+    display:block;
+    border-color: #38AEF0;
+    border-style: solid;
+    color: #38AEF0;
+    text-align: center;
+    line-height: 40px;
+    width:50px;
+    padding:0 20px;
+    text-decoration: none;
+   }
+}
+
+.chat-view__history{
+  height: calc(100vh - 102px - 140px);
+  padding:46px 40px 0;
+  background-color: #FAFAFA;
+  overflow:scroll;
+  .chat-box{
+    h3{
+    color:#434A54;
+    font-size: 16px;
+    font-weight: bold;
+    float: left;
+    padding-right: 10px;
+    }
+    p{
+      font-size: 12px;
+      float:left;
+      color: #999999
+    }
+    h4{
+      clear: both;
+      font-size: 14px;
+      padding-top: 10px;
+      padding-bottom: 40px;
+    }
+  }
+}
+
+.chat-view__form{
+overflow:hidden;
+padding: 20px 0;
+background-color: #DDDDDD;
+margin-bottom: -50px;
+input{
+  padding-left:20px;
+  float: left;
+  height:50px;
+  border-style: none;
+  width:calc(100% - 100px);
+  margin-left:40px;
+}
+i{
+  float: right;
+  margin-right: 10px;
+  color:#434A54;
+  position:relative;
+  bottom:37.5px;
+  /*right: calc(78.5px + 17.16px);*/
+}
+.send-button{
+  position:relative;
+  bottom:50px;
+  background-color: #38AEF0;
+  color: #FFFFFF;
+  text-align: center;
+  height: 50px;
+  padding:0 20px;
+  margin-left: 15px;
+  margin-right: 40px;
+  font-size: 16px;
+  float:right;
+}
+
+}
