@@ -7,13 +7,5 @@
       %i.fa.fa-cog
     = link_to new_group_path do
       %i.fa.fa-pencil-square-o
-  .menu__chat-groups
-    %h2 sample
-    %p sample
-  .menu__chat-groups
-    %h2 sample
-    %p sample
-  .menu__chat-groups
-    %h2 sample
-    %p sample
+  = render partial: 'group', collection: @groups
 .chat-view
