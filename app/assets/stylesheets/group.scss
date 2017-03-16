@@ -1,7 +1,11 @@
 @import "./clearfix";
 
 /*index*/
-
+header{
+  background-color: #38AEF0;
+  color: #FFFFFF;
+  text-align: center;
+}
 .menu{
   float:left;
   width:300px;
@@ -245,7 +249,8 @@ overflow:hidden;
 padding: 20px 0;
 background-color: #DDDDDD;
 margin-bottom: -50px;
-input{
+
+.message-text-field{
   padding-left:20px;
   float: left;
   height:50px;
@@ -273,6 +278,8 @@ i{
   margin-right: 40px;
   font-size: 16px;
   float:right;
+  border-style: none;
+
 }
 
 }
