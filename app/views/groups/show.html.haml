@@ -8,44 +8,17 @@
       %i.fa.fa-cog
     = link_to new_group_path do
       %i.fa.fa-pencil-square-o
-  .menu__chat-groups
-    %h2 sample
-    %p sample
-  .menu__chat-groups
-    %h2 sample
-    %p sample
-  .menu__chat-groups
-    %h2 sample
-    %p sample
+  = render partial: 'group', collection: @groups
 .chat-view
   .chat-view__group-details
-    %h2 Sample
+    %h2 
+      = @group.name
     = link_to 'Edit', class: "edit-button"
     %p Members: naya
   .chat-view__history
-    .chat-box
-      %h3 naayasaito
-      %p 2017/03/07 19:53:07
-      %h4 hello
-    .chat-box
-      %h3 naayasaito
-      %p 2017/03/07 19:53:07
-      %h4 hello
-    .chat-box
-      %h3 naayasaito
-      %p 2017/03/07 19:53:07
-      %h4 hello
-    .chat-box
-      %h3 naayasaito
-      %p 2017/03/07 19:53:07
-      %h4 hello
-    .chat-box
-      %h3 naayasaito
-      %p 2017/03/07 19:53:07
-      %h4 hello
-    / = render partial: 'message', collection: @messages
+    = render partial: 'message', collection: @messages
   .chat-view__form
-    =form_for(@message)do|f|
-    %input(type = 'text' name = 'message' placeholder = 'type a message')
-    = button_tag 'Send', class: "send-button"
-    %i.fa.fa-picture-o
+    =form_for ([@group, @message]) do|f|
+      =f.text_field :body, name:'body', placeholder: 'type a message', type: 'text', class:'message-text-field'
+      =f.submit class: "send-button", value: "Send", name: "commit"
+      %i.fa.fa-picture-o
