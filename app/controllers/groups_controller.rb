@@ -8,7 +8,8 @@ class GroupsController < ApplicationController
     @groups = Group.all
     @group = Group.find(params[:id])
     @messages = @group.messages
-    @message = @group.messages.new
+    @message = Message.new
+
   end
   def new
     @group = Group.new
