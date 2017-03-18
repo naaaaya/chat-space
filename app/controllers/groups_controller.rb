@@ -5,11 +5,6 @@ class GroupsController < ApplicationController
   end
 
   def show
-    @groups = current_user.groups
-    @group = Group.find(params[:id])
-    @messages = @group.messages
-    @message = Message.new
-
   end
   def new
     @group = Group.new
@@ -46,7 +41,4 @@ class GroupsController < ApplicationController
     params.require(:group).permit(user_ids:[])
   end
 
-  def group_params
-    params.require(:chat_group).permit(:name)
-  end
 end
