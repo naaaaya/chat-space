@@ -1,17 +1,14 @@
 class MessagesController < ApplicationController
 
   def index
-    @groups = current_user.groups
-    @group = Group.find(params[:group_id])
-    @messages =@group.messages
+    defines_groups_messages_variables
     @message = Message.new
   end
 
   def create
-    @group = Group.find(params[:group_id])
-    @groups = current_user.groups
+   defines_groups_messages_variables
     @message = current_user.messages.create(message_params)
-    @messages =@group.messages
+
     if @message.persisted?
       redirect_to group_messages_path(@group)
     else
