@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 describe Group do
-  describe '#create' do
     it 'is invalid without a name' do
       group = build(:group, name: nil)
       group.valid?
@@ -12,5 +11,4 @@ describe Group do
       group = build(:group)
       expect(group).to be_valid
     end
-  end
 end

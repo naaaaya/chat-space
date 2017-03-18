@@ -1,6 +1,5 @@
 require 'rails_helper'
 describe Message do
-  describe '#create' do
 
     it  'is invalid without a message body' do
       message = build(:message, body: nil)
@@ -13,5 +12,4 @@ describe Message do
       expect(message).to be_valid
     end
 
-  end
 end
