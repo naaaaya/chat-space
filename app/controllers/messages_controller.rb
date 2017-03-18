@@ -9,12 +9,14 @@ class MessagesController < ApplicationController
 
   def create
     @group = Group.find(params[:group_id])
-    message = current_user.messages.create(message_params)
-    if message.persisted?
+    @groups = current_user.groups
+    @message = current_user.messages.create(message_params)
+    @messages =@group.messages
+    if @message.persisted?
       redirect_to group_messages_path(@group)
     else
-      flash[:notice] = 'メッセージを入力してください'
-      redirect_to group_messages_path(@group)
+      flash.now[:notice] = 'メッセージを入力してください'
+      render :index, items: [@groups, @messages, @group, @message]
     end
   end
 
