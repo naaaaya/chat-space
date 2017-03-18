@@ -41,4 +41,7 @@ class GroupsController < ApplicationController
     params.require(:group).permit(user_ids:[])
   end
 
+  def group_params
+    params.require(:chat_group).permit(:name)
+  end
 end

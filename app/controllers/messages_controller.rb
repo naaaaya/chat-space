@@ -8,20 +8,20 @@ class MessagesController < ApplicationController
   end
 
   def create
+    @group = Group.find(params[:group_id])
     message = current_user.messages.create(message_params)
-    binding.pry
     if message.persisted?
-      redirect_to group_path(@group)
+      redirect_to group_messages_path(@group)
     else
       flash[:notice] = 'メッセージを入力してください'
-      redirect_to group_path(@group)
+      redirect_to group_messages_path(@group)
     end
   end
 
   private
 
   def message_params
-    params.permit(:body,:group_id)
+    params.require(:message).permit(:body).merge(group_id:params[:group_id])
   end
 
 end
