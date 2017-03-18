@@ -12,6 +12,6 @@ describe Message do
       message = build(:message)
       expect(message).to be_valid
     end
-    
-    end
+
+  end
 end
