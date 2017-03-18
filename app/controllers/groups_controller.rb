@@ -1,11 +1,11 @@
 class GroupsController < ApplicationController
 
   def index
-    @groups = Group.all
+    @groups = current_user.groups
   end
 
   def show
-    @groups = Group.all
+    @groups = current_user.groups
     @group = Group.find(params[:id])
     @messages = @group.messages
     @message = Message.new

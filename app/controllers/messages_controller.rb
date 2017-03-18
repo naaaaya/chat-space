@@ -1,5 +1,12 @@
 class MessagesController < ApplicationController
 
+  def index
+    @groups = current_user.groups
+    @group = Group.find(group_params)
+    @messages =@group.messages
+    @message = Message.new
+  end
+
   def create
     message = Message.create(message_params)
     if message.valid? == false
