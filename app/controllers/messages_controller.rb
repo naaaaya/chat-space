@@ -2,26 +2,26 @@ class MessagesController < ApplicationController
 
   def index
     @groups = current_user.groups
-    @group = Group.find(group_params)
+    @group = Group.find(params[:group_id])
     @messages =@group.messages
     @message = Message.new
   end
 
   def create
-    message = Message.create(message_params)
-    if message.valid? == false
+    message = current_user.messages.create(message_params)
+    binding.pry
+    if message.persisted?
+      redirect_to group_path(@group)
+    else
       flash[:notice] = 'メッセージを入力してください'
+      redirect_to group_path(@group)
     end
-      redirect_to group_path(group_params)
   end
 
   private
 
   def message_params
-    params.permit(:body,:group_id).merge(user_id: current_user.id)
+    params.permit(:body,:group_id)
   end
 
-  def group_params
-    @group = Group.find(params[:group_id])
-  end
 end
