@@ -13,7 +13,9 @@
     %h2
       = @group.name
     = link_to 'Edit', class: "edit-button"
-    %p Members: naya
+    %p
+      Members : naya
+
   .chat-view__history
     = render @messages
   .chat-view__form

@@ -1,18 +1,19 @@
 class MessagesController < ApplicationController
-
+  before_action :authenticate_user!
+  before_action :defines_groups_messages_variables, only: [:index, :create]
   def index
-    defines_groups_messages_variables
     @message = Message.new
   end
 
   def create
-   defines_groups_messages_variables
     @message = current_user.messages.create(message_params)
 
     if @message.persisted?
       redirect_to group_messages_path(@group)
     else
       flash.now[:notice] = 'メッセージを入力してください'
+
+
       render :index
     end
   end
