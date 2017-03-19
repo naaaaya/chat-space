@@ -1,5 +1,5 @@
 class MessagesController < ApplicationController
-
+  before_action :authenticate_user!
   def index
     defines_groups_messages_variables
     @message = Message.new

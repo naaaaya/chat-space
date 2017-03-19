@@ -6,6 +6,10 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
   end
 
+   def after_sign_out_path_for(resource)
+    '/users/sign_in' # サインアウト後のリダイレクト先URL
+  end
+
   def defines_groups_messages_variables
     @group = Group.find(params[:group_id])
     @groups = current_user.groups
