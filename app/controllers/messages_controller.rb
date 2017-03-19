@@ -6,13 +6,15 @@ class MessagesController < ApplicationController
   end
 
   def create
-   defines_groups_messages_variables
+    defines_groups_messages_variables
     @message = current_user.messages.create(message_params)
 
     if @message.persisted?
       redirect_to group_messages_path(@group)
     else
       flash.now[:notice] = 'メッセージを入力してください'
+
+
       render :index
     end
   end
