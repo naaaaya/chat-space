@@ -6,14 +6,15 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @message = current_user.messages.create(message_params)
+    @message = current_user.messages.new(message_params)
 
-    if @message.persisted?
-      redirect_to group_messages_path(@group)
+    if @message.save
+      respond_to do |format|
+        format.html {redirect_to :group_messages}
+        format.json {render json: @message}
+      end
     else
       flash.now[:notice] = 'メッセージを入力してください'
-
-
       render :index
     end
   end
