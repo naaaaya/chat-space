@@ -91,6 +91,8 @@ header{
   padding:46px 40px 0;
   background-color: #FAFAFA;
   overflow:scroll;
+  .messages{
+  list-style-type: none;
   .chat-box{
     h3{
     color:#434A54;
@@ -110,6 +112,7 @@ header{
       padding-top: 10px;
       padding-bottom: 40px;
     }
+  }
   }
 }
 

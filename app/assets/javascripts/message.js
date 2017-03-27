@@ -1,7 +1,7 @@
 $(function(){
 
   function buildHTML(message) {
-    var html = $('<li class= "message">').append(message.content);
+    var html = '<div class = "chat-box"><h4>' + message.body + '</h4></div>';
     return html;
   }
 
@@ -11,17 +11,17 @@ $(function(){
     var message = textField.val();
     $.ajax({
       type: 'POST',
-      url: '/messages.json',
+      url: './messages.json',
       data: {
         message: {
-          content: message
+          body: message
         }
       },
       dataType: 'json'
     })
     .done(function(data) {
       var html = buildHTML(data);
-      $('.chat-box').append(html);
+      $('.chat-view__history').append(html);
       textField.val('');
     })
     .fail(function() {
