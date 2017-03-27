@@ -21,5 +21,5 @@
   .chat-view__form
     =form_for ([@group, @message]) do|f|
       =f.text_field :body, placeholder: 'type a message', class:'message-text-field'
-      =f.submit class: "send-button", value: "Send", name: "commit"
+      =f.submit class: "send-button", value: "Send"
       %i.fa.fa-picture-o
