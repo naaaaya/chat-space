@@ -1,7 +1,7 @@
 $(function(){
 
-  function buildHTML(message) {
-    var html = '<div class = "chat-box"><h4>' + message.body + '</h4></div>';
+  function buildHTML(message, name) {
+    var html = '<div class = "chat-box"><h3>'+ name + '</h3><p>'+ message.created_at + '<h4>' + message.body + '</h4></div>';
     return html;
   }
 
@@ -20,13 +20,12 @@ $(function(){
       dataType: 'json'
     })
     .done(function(data) {
-      var html = buildHTML(data);
+      var html = buildHTML(data[0],data[1]);
       $('.chat-view__history').append(html);
       textField.val('');
     })
     .fail(function() {
       alert('error');
     });
-    return false;
   });
 });
