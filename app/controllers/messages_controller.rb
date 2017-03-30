@@ -3,7 +3,8 @@ class MessagesController < ApplicationController
   before_action :defines_groups_messages_variables, only: [:index, :create]
   def index
     @message = Message.new
-  end
+    @users = Group.find(params[:group_id]).users
+      end
 
   def create
     @message = current_user.messages.new(message_params)

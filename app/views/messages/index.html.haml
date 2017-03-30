@@ -14,7 +14,9 @@
       = @group.name
     = link_to 'Edit', class: "edit-button"
     %p
-      Members : naya
+      Members :
+      -@users.each do |user|
+        =user.name
 
   .chat-view__history
     = render @messages
