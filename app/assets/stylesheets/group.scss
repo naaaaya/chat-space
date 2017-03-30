@@ -125,6 +125,11 @@ header{
     .chat-group-form__field--right {
       float: right;
       width: 70%;
+      #chat-group-users{
+        li{
+          list-style-type: none;
+        }
+      }
     }
     .chat-group-form__search{
       @include clearfix();
@@ -152,6 +157,8 @@ header{
     font-size: 14px;
     border-bottom: 1px solid #ddd;
     @include clearfix();
+
+
     .chat-group-user__name {
       float: left;
     }
@@ -282,4 +289,8 @@ i{
 
 }
 
+}
+
+li{
+  list-style-type:none;
 }

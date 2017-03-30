@@ -8,25 +8,16 @@ class GroupsController < ApplicationController
   end
   def new
     @group = Group.new
-    @group.users.build
-    @users = User.all
-     respond_to do |format|
-      format.html
-      format.json { render json: @users}
-    end
   end
 
   def create
-    @users =[]
-    group = Group.create(group_params)
-    user_ids = user_params[:user_ids]
+    group = current_user.groups.create(group_params)
+    user_ids = user_params[:user_ids].split(',')
+    users =[]
     user_ids.each do|user_id|
-      @users << User.find(user_id) if user_id
+      users << User.find(user_id) if user_id
     end
-    @users.each do |user|
-      user.groups << group
-    end
-
+    group.users << users
     redirect_to root_path
   end
 
@@ -43,7 +34,7 @@ class GroupsController < ApplicationController
   private
 
   def user_params
-    params.require(:group).permit(user_ids:[])
+    params.require(:group).permit(:user_ids)
   end
 
   def group_params
