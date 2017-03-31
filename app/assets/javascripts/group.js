@@ -1,6 +1,7 @@
 $(function(){
 
   var result = $("#user-search-result");
+  var preinput = ''
   var add_users = []
 
   function appendSearchedList(user, index) {
@@ -15,13 +16,14 @@ $(function(){
 
 
   $('#chat_group_member').on('keyup', function() {
-    var name = $(this).val();
+    var input = $(this).val();
+    if (preinput != input ){
     $('.searched_name').remove();
     $.ajax({
       type: 'GET',
       url: '/users.json',
       data:{
-        keyword: name
+        keyword: input
       },
       dataType: 'json'
     })
@@ -34,6 +36,8 @@ $(function(){
     .fail(function() {
       alert('error');
     });
+  preinput = input
+  };
   });
 
 
