@@ -23,9 +23,7 @@
           #chat-group-user-22.chat-group-user
             %p.chat-group-user__name
               =current_user.name
-            %ul{class: "users_id"}
-              %li
-              =f.hidden_field :user_ids, :value =>'', id: 'hiddenID'
+              =f.hidden_field :user_ids, value: '', id: 'hiddenID', data:{ids: []}
     .chat-group-form__field
       .chat-group-form__field--left
       .chat-group-form__field--right

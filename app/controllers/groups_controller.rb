@@ -2,9 +2,12 @@ class GroupsController < ApplicationController
   before_action :authenticate_user!
   def index
     @groups = current_user.groups
+    # @message = Message.order('DESC created_at').limit(1)
+
   end
 
   def show
+    # @message = Message.order('DESC created_at').limit(1)
   end
   def new
     @group = Group.new
@@ -28,6 +31,12 @@ class GroupsController < ApplicationController
   def update
     @group = Group.find(params[:id])
     @group.update(group_params)
+    user_ids = user_params[:user_ids].split(',')
+    users =[]
+    user_ids.each do|user_id|
+      users << User.find(user_id) if user_id
+    end
+    @group.users = users
     redirect_to root_path
   end
 
