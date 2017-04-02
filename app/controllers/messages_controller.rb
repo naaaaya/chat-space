@@ -1,4 +1,4 @@
-class MessagesController < ApplicationController
+  class MessagesController < ApplicationController
   before_action :authenticate_user!
   before_action :defines_groups_messages_variables, only: [:index, :create]
   def index
@@ -8,13 +8,8 @@ class MessagesController < ApplicationController
 
   def create
     @message = current_user.messages.new(message_params)
-    @name = @message.user.name
-    if @message.save
-      respond_to do |format|
-        format.html {redirect_to :group_messages}
-        format.json {render json: [@message,@name]}
-      end
-    else
+    @user = @message.user
+    unless @message.save
       flash.now[:notice] = 'メッセージを入力してください'
       render :index
     end

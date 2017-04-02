@@ -5,7 +5,7 @@ $(function(){
   var add_users = []
 
   function appendSearchedList(user) {
-    var item = $(`<li class="chat-group-user searched_name", data-user-id = ${user.id}, data-user-name = ${user.name} > ${user.name} <p class = "chat-group-user__btn chat-group-user__btn--add">追加</p></li>` );
+    var item = $(`<li class="chat-group-user searched_name", data-user-id = ${user.id} , data-user-name = ${user.name} > ${user.name} <p class = "chat-group-user__btn chat-group-user__btn--add">追加</p></li>` );
     result.append(item);
   };
 
@@ -45,6 +45,7 @@ $(function(){
     var list = $(this).parents()
     user_id = list.data('userId');
     user_name = list.data('userName');
+    console.log(user_id);
     appendAddedList(user_name);
     add_users.push(user_id);
     $("#hiddenID").val(add_users);
