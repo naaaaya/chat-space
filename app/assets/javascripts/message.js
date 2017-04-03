@@ -21,7 +21,6 @@ $(function(){
       dataType: 'json'
     })
     .done(function(data) {
-      console.log(data);
       var html = buildHTML(data);
       $('.chat-view__history').append(html);
       textField.val('');
