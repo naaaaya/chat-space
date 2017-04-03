@@ -2,26 +2,25 @@ class GroupsController < ApplicationController
   before_action :authenticate_user!
   def index
     @groups = current_user.groups
+    # @message = Message.order('DESC created_at').limit(1)
+
   end
 
   def show
+    # @message = Message.order('DESC created_at').limit(1)
   end
   def new
     @group = Group.new
-    @group.users.build
   end
 
   def create
-    @users =[]
-    group = Group.create(group_params)
-    user_ids = user_params[:user_ids]
+    group = current_user.groups.create(group_params)
+    user_ids = user_params[:user_ids].split(',')
+    users =[]
     user_ids.each do|user_id|
-      @users << User.find(user_id) if user_id
+      users << User.find(user_id) if user_id
     end
-    @users.each do |user|
-      user.groups << group
-    end
-
+    group.users << users
     redirect_to root_path
   end
 
@@ -32,13 +31,19 @@ class GroupsController < ApplicationController
   def update
     @group = Group.find(params[:id])
     @group.update(group_params)
+    user_ids = user_params[:user_ids].split(',')
+    users =[]
+    user_ids.each do|user_id|
+      users << User.find(user_id) if user_id
+    end
+    @group.users = users
     redirect_to root_path
   end
 
   private
 
   def user_params
-    params.require(:group).permit(user_ids:[])
+    params.require(:group).permit(:user_ids)
   end
 
   def group_params

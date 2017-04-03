@@ -12,9 +12,11 @@
   .chat-view__group-details
     %h2
       = @group.name
-    = link_to 'Edit', class: "edit-button"
+    = link_to 'Edit',edit_group_path(id: @group.id), class: "edit-button"
     %p
-      Members : naya
+      Members :
+      -@users.each do |user|
+        =user.name
 
   .chat-view__history
     = render @messages

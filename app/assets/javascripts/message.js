@@ -1,9 +1,10 @@
 $(function(){
 
   function buildHTML(message) {
-    var html = '<div class = "chat-box"><h4>' + message.body + '</h4></div>';
+    console.log(`${message.name}さんのメッセージ：${message.body}`);
+    var html = `<div class = "chat-box"><h3>${message.name}</h3><p>${message.created_at}<h4>${message.body}</h4></div>`;
     return html;
-  }
+  };
 
   $('.chat-view__form .send-button').on('click', function(e) {
     e.preventDefault();
@@ -27,6 +28,5 @@ $(function(){
     .fail(function() {
       alert('error');
     });
-    return false;
   });
 });

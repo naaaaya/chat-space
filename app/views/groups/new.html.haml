@@ -13,8 +13,7 @@
         =f.label :チャットメンバーを追加, for: "chat_group_チャットメンバーを追加", class: "chat-group-form__label"
       .chat-group-form__field--right
         .chat-group-form__search
-          = collection_check_boxes(:group,:user_ids, User.all, :id, :name, include_hidden: false) do |b|
-            = b.label { b.check_box + b.text }
+          %input{placeholder: "追加したいユーザー名を入力してください", type: "text", id: "chat_group_member", class: "chat-group-form__input"}
         #user-search-result
     .chat-group-form__field
       .chat-group-form__field--left
@@ -23,6 +22,8 @@
         #chat-group-users
           #chat-group-user-22.chat-group-user
             %p.chat-group-user__name
+              =current_user.name
+              =f.hidden_field :user_ids, value: '', id: 'hiddenID', data:{ids: []}
     .chat-group-form__field
       .chat-group-form__field--left
       .chat-group-form__field--right

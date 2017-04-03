@@ -42,6 +42,8 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'rails-controller-testing'
+gem 'pry-rails'
+  
 end
 
 group :development do
@@ -61,4 +63,4 @@ gem 'erb2haml'
 gem "font-awesome-rails"
 gem 'font-awesome-sass'
 gem 'devise'
-gem 'pry-rails'
+gem 'jquery-turbolinks'
