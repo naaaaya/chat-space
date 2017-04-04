@@ -1,7 +1,6 @@
 $(function(){
 
   function buildHTML(message) {
-    console.log(`${message.name}さんのメッセージ：${message.body}`);
     var html = `<div class = "chat-box"><h3>${message.name}</h3><p>${message.created_at}<h4>${message.body}</h4></div>`;
     return html;
   };
@@ -26,7 +25,7 @@ $(function(){
       textField.val('');
     })
     .fail(function() {
-      alert('error');
+      $('header').text('メッセージを入力してください')
     });
   });
 });
