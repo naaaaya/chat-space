@@ -42,8 +42,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'rails-controller-testing'
-gem 'pry-rails'
-  
+  gem 'pry-rails'
 end
 
 group :development do
@@ -65,3 +64,4 @@ gem 'font-awesome-sass'
 gem 'devise'
 gem 'jquery-turbolinks'
 gem 'carrierwave'
+gem 'rmagick'
