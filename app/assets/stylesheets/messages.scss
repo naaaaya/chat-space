@@ -131,8 +131,7 @@ header{
     margin-left:40px;
   }
 
-  label{
-    font-family: 'FontAwesome';
+  i{
     float: right;
     margin-right: 10px;
     color:#434A54;
@@ -141,9 +140,8 @@ header{
   }
 
   #message_image{
-    /*display: none;*/
+    display: none;
   }
-
 
   .send-button{
     position:relative;
