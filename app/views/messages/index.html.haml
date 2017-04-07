@@ -21,7 +21,8 @@
   .chat-view__history
     = render @messages
   .chat-view__form
-    =form_for ([@group, @message]) do|f|
+    = form_for ([@group, @message]) do|f|
       =f.text_field :body, placeholder: 'type a message', class:'message-text-field'
       =f.submit class: "send-button", value: "Send"
       %i.fa.fa-picture-o
+      = f.file_field :image, id: "message_image"

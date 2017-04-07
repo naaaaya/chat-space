@@ -18,7 +18,7 @@
   private
 
   def message_params
-    params.require(:message).permit(:body).merge(group_id: params[:group_id])
+    params.require(:message).permit(:body, :image).merge(group_id: params[:group_id])
   end
 
 end
