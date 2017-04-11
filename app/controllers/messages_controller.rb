@@ -9,7 +9,6 @@ class MessagesController < ApplicationController
   def create
     @message = current_user.messages.new(message_params)
     @user = @message.user
-    # binding.pry
     if @message.save
       respond_to do |format|
         format.json

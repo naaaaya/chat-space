@@ -4,7 +4,5 @@
   %p
     = message.created_at.to_s(:default)
   %h4
-    -if message.body
-      = message.body
-    -elsif message.image
-      = image_tag message.image
+    = message.body
+    = image_tag message.image
