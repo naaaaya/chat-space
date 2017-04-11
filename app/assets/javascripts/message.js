@@ -1,14 +1,12 @@
 $(function(){
 
   function appendMessage(message) {
-    console.log(`${message.name}さんのメッセージ：${message.body}`);
-    var html = `<div class = "chat-box"><h3>${message.name}</h3><p>${message.created_at}<h4>${message.image.url}</h4></div>`;
+    var html = `<div class = "chat-box"><h3>${message.name}</h3><p>${message.created_at}</p><h4>${message.body}</h4></div>`;
     return html;
   };
 
   function appendImage(message) {
-    console.log(`${message.name}さんのメッセージ：${message.image.url}`);
-    var html = `<div class = "chat-box"><h3>${message.name}</h3><p>${message.created_at}<img src=${message.image.url}></div>`;
+    var html = `<div class = "chat-box"><h3>${message.name}</h3><p>${message.created_at}</p><h4><img src=${message.image.url}></h4></div>`;
     return html;
   };
 
@@ -35,7 +33,6 @@ $(function(){
       contentType: false
     })
     .done(function(data) {
-      console.log(data);
       if (data.body) {
       var html = appendMessage(data);
       $('.chat-view__history').append(html);
