@@ -1,15 +1,19 @@
-  class MessagesController < ApplicationController
+class MessagesController < ApplicationController
   before_action :authenticate_user!
   before_action :defines_groups_messages_variables, only: [:index, :create]
   def index
     @message = Message.new
     @users = Group.find(params[:group_id]).users
-      end
+  end
 
   def create
     @message = current_user.messages.new(message_params)
     @user = @message.user
-    unless @message.save
+    if @message.save
+      respond_to do |format|
+        format.json
+      end
+    else
       flash.now[:notice] = 'メッセージを入力してください'
       render :index
     end
@@ -18,7 +22,7 @@
   private
 
   def message_params
-    params.require(:message).permit(:body).merge(group_id: params[:group_id])
+    params.require(:message).permit(:body, :image).merge(group_id: params[:group_id])
   end
 
 end

@@ -16,8 +16,10 @@ class ImagesUploader < CarrierWave::Uploader::Base
 
   def filename
     time = Time.now
-    name = time.strftime('%Y%m%d%H%M%S') + '.jpg'
-    name.downcase
+    if model.image.url
+      name = time.strftime('%Y%m%d%H%M%S') + '.jpg'
+      name.downcase
+    end
   end
 
 end
