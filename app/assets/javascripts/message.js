@@ -10,7 +10,7 @@ $(function(){
     return html;
   };
 
-  $('i').on('click', function(e){
+  $('#image_icon').on('click', function(e){
     e.preventDefault();
     $('#message_image').click();
   })
