@@ -1,14 +1,36 @@
 $(function(){
 
+  setInterval(function(){
+    var last_message = $('.chat-box').last().data('id');
+    console.log(last_message);
+    $.ajax({
+      type: 'GET',
+      url: './messages.json',
+      data:{
+        last_message: last_message
+      },
+      dataType: 'json'
+    })
+    .done(function(data) {
+      var messages = data.messages;
+      console.log(last_message);
+       $.each(messages, function(index, message){
+          console.log(`${message.name}さんからの新着メッセージがあります`);
+          var html = appendMessage(message);
+          $('.chat-view__history').append(html);
+      });
+   });
+  },3000);
+
   function appendMessage(message) {
-    var html = `<div class = "chat-box"><h3>${message.name}</h3><p>${message.created_at}</p><h4>${message.body}</h4></div>`;
+    if (message.body){
+      var html = `<div class = "chat-box", data-id:${message.id}><h3>${message.name}</h3><p>${message.created_at}</p><h4>${message.body}</h4></div>`;
+    }else{
+      var html = `<div class = "chat-box", data-id: ${message.id}><h3>${message.name}</h3><p>${message.created_at}</p><h4><img src=${message.image}></h4></div>`;
+    }
     return html;
   };
 
-  function appendImage(message) {
-    var html = `<div class = "chat-box"><h3>${message.name}</h3><p>${message.created_at}</p><h4><img src=${message.image.url}></h4></div>`;
-    return html;
-  };
 
   $('#image_icon').on('click', function(e){
     e.preventDefault();
@@ -33,16 +55,12 @@ $(function(){
       contentType: false
     })
     .done(function(data) {
-      if (data.body) {
-      var html = appendMessage(data);
-      $('.chat-view__history').append(html);
-      textField.val('');
-    } else{
-      var html = appendImage(data);
-      $('.chat-view__history').append(html);
-      textField.val('');
-    }
-    })
+        var html = appendMessage(data);
+        $('.chat-view__history').append(html);
+        $(".send-button").prop("disabled", false);
+        $(".send-button").attr('value', 'Send');
+        textField.val('');
+      })
     .fail(function() {
       alert('error');
     });

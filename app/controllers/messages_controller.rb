@@ -1,9 +1,19 @@
 class MessagesController < ApplicationController
   before_action :authenticate_user!
   before_action :defines_groups_messages_variables, only: [:index, :create]
+  protect_from_forgery except: [:index, :create]
   def index
     @message = Message.new
-    @users = Group.find(params[:group_id]).users
+    group = Group.find(params[:group_id])
+    @users = group.users
+    @messages = group.messages
+    last_message_id = params[:last_message]
+    @unloaded_messages = group.messages.where("id > #{last_message_id}") if last_message_id
+    # binding.pry
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   def create
