@@ -2,7 +2,6 @@ $(function(){
 
   setInterval(function(){
     var last_message = $('.chat-box').last().data('id');
-    console.log(last_message);
     $.ajax({
       type: 'GET',
       url: './messages.json',
@@ -13,9 +12,7 @@ $(function(){
     })
     .done(function(data) {
       var messages = data.messages;
-      console.log(last_message);
        $.each(messages, function(index, message){
-          console.log(`${message.name}さんからの新着メッセージがあります`);
           var html = appendMessage(message);
           $('.chat-view__history').append(html);
       });
