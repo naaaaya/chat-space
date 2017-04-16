@@ -66,3 +66,6 @@ gem 'jquery-turbolinks'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'remotipart'
+gem 'fog'
+gem 'dotenv-rails'
+

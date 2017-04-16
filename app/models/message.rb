@@ -3,3 +3,4 @@ class Message < ApplicationRecord
   belongs_to :group
   mount_uploader :image, ImagesUploader
 end
+
