@@ -9,7 +9,6 @@ class MessagesController < ApplicationController
     @messages = group.messages
     last_message_id = params[:last_message]
     @unloaded_messages = group.messages.where("id > #{last_message_id}") if last_message_id
-    # binding.pry
     respond_to do |format|
       format.html
       format.json
