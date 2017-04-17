@@ -15,6 +15,9 @@ $(function(){
        $.each(messages, function(index, message){
           var html = appendMessage(message);
           $('.chat-view__history').append(html);
+      })
+      .fail(function(){
+        alert('error');
       });
    });
   },3000);
