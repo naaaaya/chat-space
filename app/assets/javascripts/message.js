@@ -11,22 +11,29 @@ $(function(){
       dataType: 'json'
     })
     .done(function(data) {
-      var messages = data.messages;
-       $.each(messages, function(index, message){
+      if (data){
+        var messages = data.messages;
+        $.each(messages, function(index, message){
           var html = appendMessage(message);
           $('.chat-view__history').append(html);
-      })
-      .fail(function(){
-        alert('error');
-      });
-   });
+        });
+      };
+    });
   },3000);
 
   function appendMessage(message) {
     if (message.body){
-      var html = `<div class = "chat-box", data-id:${message.id}><h3>${message.name}</h3><p>${message.created_at}</p><h4>${message.body}</h4></div>`;
+      var html = `<div class = "chat-box", data-id:${message.id}>
+                    <h3>${message.name}</h3>
+                    <p>${message.created_at}</p>
+                    <h4>${message.body}</h4>
+                  </div>`;
     }else{
-      var html = `<div class = "chat-box", data-id: ${message.id}><h3>${message.name}</h3><p>${message.created_at}</p><h4><img src=${message.image}></h4></div>`;
+      var html = `<div class = "chat-box", data-id: ${message.id}>
+                    <h3>${message.name}</h3>
+                    <p>${message.created_at}</p>
+                    <h4><img src=${message.image}></h4>
+                  </div>`;
     }
     return html;
   };
@@ -55,12 +62,12 @@ $(function(){
       contentType: false
     })
     .done(function(data) {
-        var html = appendMessage(data);
-        $('.chat-view__history').append(html);
-        $(".send-button").prop("disabled", false);
-        $(".send-button").attr('value', 'Send');
-        textField.val('');
-      })
+      var html = appendMessage(data);
+      $('.chat-view__history').append(html);
+      $(".send-button").prop("disabled", false);
+      $(".send-button").attr('value', 'Send');
+      textField.val('');
+    })
     .fail(function() {
       alert('error');
     });
