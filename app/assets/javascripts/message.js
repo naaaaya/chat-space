@@ -28,7 +28,7 @@ $(function(){
                     <p>${message.created_at}</p>
                     <h4>${message.body}</h4>
                   </div>`;
-    }else{
+    } else {
       var html = `<div class = "chat-box", data-id: ${message.id}>
                     <h3>${message.name}</h3>
                     <p>${message.created_at}</p>
