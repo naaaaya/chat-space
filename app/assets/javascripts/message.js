@@ -23,17 +23,9 @@ $(function(){
 
   function appendMessage(message) {
     if (message.body){
-      var html = `<div class = "chat-box", data-id:${message.id}>
-                    <h3>${message.name}</h3>
-                    <p>${message.created_at}</p>
-                    <h4>${message.body}</h4>
-                  </div>`;
+      var html = '<div class = "chat-box", data-id:'+message.id+'><h3>'+message.name+'</h3><p>'+message.created_at+'</p><h4>'+message.body+'</h4></div>';
     } else {
-      var html = `<div class = "chat-box", data-id: ${message.id}>
-                    <h3>${message.name}</h3>
-                    <p>${message.created_at}</p>
-                    <h4><img src=${message.image}></h4>
-                  </div>`;
+      var html = '<div class = "chat-box", data-id: '+message.id+'><h3>'+message.name+'</h3><p>'+message.created_at+'</p><h4><img src='+message.image+'></h4></div>';
     }
     return html;
   };

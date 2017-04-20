@@ -5,12 +5,12 @@ $(function(){
   var add_users = $("#hiddenID").data('ids');
 
   function appendSearchedList(user) {
-    var item = $(`<li class="chat-group-user searched_name" > ${user.name} <p class = "chat-group-user__btn chat-group-user__btn--add" , data-user-id = ${user.id} , data-user-name = ${user.name} >追加</p></li>` );
+    var item = $('<li class="chat-group-user searched_name" >'+user.name+'<p class = "chat-group-user__btn chat-group-user__btn--add" , data-user-id = '+user.id+', data-user-name = '+user.name+'>追加</p></li>' );
     result.append(item);
   };
 
   function appendAddedList(id, name) {
-    var item = $(`<li class="chat-group-user chat-group-user__name" > ${name} <p class = "chat-group-user__btn chat-group-user__btn--remove" , data-user-id = ${id} , data-user-name = ${name} >削除</p></li>`);
+    var item = $('<li class="chat-group-user chat-group-user__name" >'+name+'<p class = "chat-group-user__btn chat-group-user__btn--remove" , data-user-id = '+id+', data-user-name = '+name+ '>削除</p></li>');
     $("#chat-group-users").append(item);
   };
 
