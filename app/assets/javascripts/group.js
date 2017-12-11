@@ -28,6 +28,7 @@ $(function(){
         dataType: 'json'
       })
       .done(function(users) {
+        console.log(this);
         $.each(users, function(i, user){
           appendSearchedList(user);
         });

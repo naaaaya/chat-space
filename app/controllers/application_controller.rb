@@ -13,6 +13,6 @@ class ApplicationController < ActionController::Base
   def defines_groups_messages_variables
     @group = Group.find(params[:group_id])
     @groups = current_user.groups
-    @messages =@group.messages
+    @messages = @group.messages
   end
 end

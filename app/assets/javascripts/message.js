@@ -34,7 +34,7 @@ $(function(){
   $('#image_icon').on('click', function(e){
     e.preventDefault();
     $('#message_image').click();
-  })
+    })
 
   $('#message_image').on('change', function(e){
     e.preventDefault();
